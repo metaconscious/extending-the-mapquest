@@ -1,5 +1,8 @@
 async function fetchMapQuestConsumerKey(url) {
     const request = await fetch(url);
+    if (!request.ok) {
+        throw new Error(`HTTP Request Error: ${request.status}`);
+    }
     return await request.text();
 }
 
